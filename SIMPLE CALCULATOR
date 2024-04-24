@@ -1,0 +1,78 @@
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "divided buy zero"
+    else:
+        return x / y
+
+def power(x, y):
+    return x ** y
+
+def modulus(x, y):
+    if y == 0:
+        return "modulus by zero"
+    else:
+        return x % y
+
+def floor_divide(x, y):
+    if y == 0:
+        return "divided by zero"
+    else:
+        return x // y
+
+#storing the results
+results = {}
+
+while True:
+    print("operations to be selected")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Exponential")
+    print("6. Modulus")
+    print("7. Floor Division")
+    print("8. display the previous calculated values")
+    print("9. Exit")
+
+    choice = input("Enter choice")
+
+    if choice in ('1', '2', '3', '4', '5', '6', '7'):
+        number1 = float(input("first number "))
+        number2 = float(input("Enter number "))
+
+        if choice == '1':
+            result = add(number1,number2)
+        elif choice == '2':
+            result = subtract(number1,number2)
+        elif choice == '3':
+            result = multiply(number1,number2)
+        elif choice == '4':
+            result = divide(number1,number2)
+        elif choice == '5':
+            result = power(number1,number2)
+        elif choice == '6':
+            result = modulus(number1,number2)
+        elif choice == '7':
+            result = floor_divide(number1,number2)
+
+        results[(num1, num2, choice)] = result
+        print("Result:", result)
+    elif choice == '8':
+        print("Previous Results:")
+        for key, value in results.items():
+            num1, num2, op = key
+            print(f"{number1} {op} {number2} = {value}")
+    elif choice == '9':
+        print("exicted")
+        break
+    else:
+        print("Invalid input")
